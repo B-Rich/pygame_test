@@ -7,10 +7,14 @@ class Vector:
         self.x = x
         self.y = y
     def multiply(self, Matrix):
-        x = self.x * Matrix[0] + self.y * Matrix[1]
-        y = self.x * Matrix[2] + self.y * Matrix[3]
-
+        try:
+            x = self.x * Matrix[0] + self.y * Matrix[1]
+            y = self.x * Matrix[2] + self.y * Matrix[3]
+        except:
+            return self.multiplyf(Matrix)
         return Vector(x, y)
+    def multiplyf(self, f):
+        return Vector(self.x * f, self.y * f)
     def add(self, v):
         return Vector(self.x + v.x, self.y + v.y)
 

@@ -4,7 +4,7 @@ def renderShape(surface, shape, middle, color=0xFFFFFF):
     pygame.draw.polygon(surface, color, shape.getPointPairs(middle))
 
 def main():
-    triangle = shape.Shape([vector.Vector(-100, -100), vector.Vector(100, -100), vector.Vector(0, 100)])
+    triangle = shape.Shape([vector.Vector(-100, -100), vector.Vector(100, -100), vector.Vector(0, 50)])
     #square.translate(vector.Vector(0, 10))
 
     width = 600
@@ -16,6 +16,8 @@ def main():
 
     screen = pygame.display.set_mode((width, height))
 
+
+
     running = True
     fps = 0
     last = pygame.time.get_ticks()
@@ -26,14 +28,15 @@ def main():
 
         pygame.display.flip()
 
-        triangle.operate(matrix.Matrix.rotationMatrix(math.pi/100))
+
+        triangle.rotate(math.pi/1000)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 running = False
 
         fps = fps + 1
-        pygame.time.delay(16)
+        #pygame.time.delay(16)
         now = pygame.time.get_ticks()
         if now - last > 1000:
             last = now

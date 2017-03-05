@@ -28,8 +28,14 @@ class PointMatrix:
         self.data = points
 
     def multiply(self, m):
-        for index, point in enumerate(self.data):
-            self.data[index] = point.multiply(m)
+        data = []
+        for point in self.data:
+            data.append(point.multiply(m))
+
+        return PointMatrix(data)
+
     def translate(self, v):
-        for index, point in enumerate(self.data):
-            self.data[index] = point.add(v)
+        data = []
+        for point in self.data:
+            data.append(point.add(v))
+        return PointMatrix(data)
