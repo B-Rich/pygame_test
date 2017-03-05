@@ -24,6 +24,8 @@ class Vector:
         else:
             return self.y
 
+    def pair(self):
+        return (int(self.x), int(self.y))
 
 
     def __str__(self):

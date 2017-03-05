@@ -34,6 +34,9 @@ class PointMatrix:
 
         return PointMatrix(data)
 
+    def __getitem__(self, index):
+        return self.data[index]
+
     def translate(self, v):
         data = []
         for point in self.data:
